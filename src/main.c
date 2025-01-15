@@ -75,9 +75,9 @@ int main() {
   printf("Starting program...\n\n");
 
   pthread_t serverThread, clientThread;
-  pthread_create(&serverThread, NULL, &alloc_server, NULL);
+  pthread_create(&serverThread, NULL, (void*)&alloc_server, NULL);
   sleep(1);
-  pthread_create(&clientThread, NULL, &alloc_client, NULL);
+  pthread_create(&clientThread, NULL, (void*)&alloc_client, NULL);
   pthread_join(clientThread, NULL);
 
   return 0;
